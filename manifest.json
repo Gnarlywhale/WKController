@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+  
+    "name": "WaniController",
+    "description": "Quick shortuct commands for controlling Wanikani during reviews.",
+    "version": "1.0",
+    "commands": {
+      "qPress": {
+        "suggested_key": {
+          "default": "q"
+        },
+        "description": "My description"
+      }
+    },
+    "content_scripts": [
+        {
+        "matches": [
+            "https://www.wanikani.com/review/session"
+            ],
+        "js": ["wkcontroller.js"],
+        "run_at": "document_end"         // pay attention to this line
+        }
+    ], 
+    // "browser_action": {
+    //   "default_icon": "icon.png",
+    //   "default_popup": "popup.html"
+    // },
+    "permissions": [
+      "activeTab",
+      "storage"
+    ]
+  }
